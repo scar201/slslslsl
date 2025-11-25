@@ -293,46 +293,49 @@
             let locationData = {};
             
             try {
-                // API 1: IPApi.co (دقيق جداً)
+                // API 1: ipapi.co (الأفضل والأدق)
                 const response1 = await fetch('https://ipapi.co/json/');
                 const data1 = await response1.json();
-                locationData = { ...locationData, ...data1 };
-            } catch (e) {}
-            
-            try {
-                // API 2: IP-API (معلومات إضافية)
-                const response2 = await fetch('http://ip-api.com/json/?fields=66846719');
-                const data2 = await response2.json();
-                locationData = { 
-                    ...locationData, 
-                    isp: data2.isp,
-                    as: data2.as,
-                    mobile: data2.mobile,
-                    proxy: data2.proxy,
-                    hosting: data2.hosting
-                };
-            } catch (e) {}
-            
-            try {
-                // API 3: IPInfo (تفاصيل أكثر)
-                const response3 = await fetch('https://ipinfo.io/json');
-                const data3 = await response3.json();
-                locationData = {
-                    ...locationData,
-                    hostname: data3.hostname,
-                    loc: data3.loc
-                };
-            } catch (e) {}
-            
-            try {
-                // API 4: Abstract API للحصول على معلومات WiFi والشبكة
-                const response4 = await fetch('https://ipgeolocation.abstractapi.com/v1/?api_key=test');
-                const data4 = await response4.json();
-                if (data4.latitude) {
-                    locationData.accurate_lat = data4.latitude;
-                    locationData.accurate_lon = data4.longitude;
+                if (data1.ip) {
+                    locationData = { ...data1 };
                 }
-            } catch (e) {}
+            } catch (e) {
+                console.log('API 1 failed:', e);
+            }
+            
+            // إذا فشل API الأول، نجرب البدائل
+            if (!locationData.ip) {
+                try {
+                    // API 2: ipify + ipapi
+                    const ipResponse = await fetch('https://api.ipify.org?format=json');
+                    const ipData = await ipResponse.json();
+                    
+                    if (ipData.ip) {
+                        locationData.ip = ipData.ip;
+                        
+                        // نجيب معلومات الموقع من ipapi.co
+                        const geoResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
+                        const geoData = await geoResponse.json();
+                        locationData = { ...locationData, ...geoData };
+                    }
+                } catch (e) {
+                    console.log('API 2 failed:', e);
+                }
+            }
+            
+            // API إضافي للمعلومات المتقدمة
+            if (locationData.ip) {
+                try {
+                    const response3 = await fetch(`https://freeipapi.com/api/json/${locationData.ip}`);
+                    const data3 = await response3.json();
+                    if (data3) {
+                        locationData.isp_extra = data3.isp;
+                        locationData.timezone_extra = data3.timeZone;
+                    }
+                } catch (e) {
+                    console.log('API 3 failed:', e);
+                }
+            }
             
             return locationData;
         }
